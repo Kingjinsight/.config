@@ -6,7 +6,7 @@ return {
         config = function () 
             local configs = require("nvim-treesitter.configs")
             configs.setup({
-                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "elixir", "heex", "javascript", "python", "java" },
+                auto_install = true,
                 highlight = { enable = true },
                 indent = { enable = true },  
             })
@@ -29,4 +29,6 @@ return {
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
     }, --LSP-config    
+    { "nvimtools/none-ls.nvim" },  -- none-ls
+
 }
