@@ -45,12 +45,16 @@ return {
 	},
 	{
 		"hrsh7th/cmp-nvim-lsp",
-	},
+	},  -- completion
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			"rcarriga/nvim-dap-ui",
             "nvim-neotest/nvim-nio",
 		},
-	},
+	},  -- debugger
+    {
+        'fedepujol/move.nvim',
+        opts = {}
+    },
 }

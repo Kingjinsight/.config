@@ -12,6 +12,7 @@ vim.cmd("set tabstop=4")
 vim.cmd("set shiftwidth=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set expandtab")
+vim.cmd("set inccommand=split")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set incsearch")
@@ -32,18 +33,88 @@ vim.cmd("colorscheme kanagawa")
 
 
 ---Basic Mappings---
+local opts = { noremap = true, silent = true }
 vim.g.mapleader = " "
-vim.keymap.set('n', ';', ':', { silent = false })
-vim.keymap.set('v', 'Y', '"+y', { silent = true })
-vim.keymap.set('i', '{', '{}<Esc>i', { silent = true })
-vim.keymap.set('i', '(', '()<Esc>i', { silent = true })
-vim.keymap.set('i', '[', '[]<Esc>i', { silent = true })
-vim.keymap.set('i', "'", "''<Esc>i", { silent = true })
-vim.keymap.set('i', '"', '""<Esc>i', { silent = true })
-vim.keymap.set('n', 'J', '5j', { silent = true })
-vim.keymap.set('n', 'K', '5k', { silent = true })
-vim.keymap.set('n', 'W', '5w', { silent = true })
-vim.keymap.set('n', 'B', '5b', { silent = true })
+vim.keymap.set('n', ';', ':', opts)
+vim.keymap.set('v', 'Y', '"+y', opts)
+vim.keymap.set('i', '{', '{}<Esc>i', opts)
+vim.keymap.set('i', '(', '()<Esc>i', opts)
+vim.keymap.set('i', '[', '[]<Esc>i', opts)
+vim.keymap.set('i', "'", "''<Esc>i", opts)
+vim.keymap.set('i', '"', '""<Esc>i', opts)
+vim.keymap.set('n', 'J', '5j', opts)
+vim.keymap.set('n', 'K', '5k', opts)
+vim.keymap.set('n', 'W', '5w', opts)
+vim.keymap.set('n', 'B', '5b', opts)
+vim.keymap.set('n', '<A-j>', ':MoveLine(1)<CR>', opts)
+vim.keymap.set('n', '<A-k>', ':MoveLine(-1)<CR>', opts)
+vim.keymap.set('v', '<A-j>', ':MoveBlock(1)<CR>', opts)
+vim.keymap.set('v', '<A-k>', ':MoveBlock(-1)<CR>', opts)
+
+
+
+
+
+---Window management---
+
+-- Disable default 's' key for window splitting
+vim.keymap.set('n', 's', '<nop>', { noremap = true })
+
+-- Cycle through windows using <LEADER>w
+vim.keymap.set('n', '<LEADER>w', '<C-w>w', { noremap = true })
+
+-- Move between windows: up, down, left, right
+vim.keymap.set('n', '<LEADER>k', '<C-w>k', { noremap = true })
+vim.keymap.set('n', '<LEADER>j', '<C-w>j', { noremap = true })
+vim.keymap.set('n', '<LEADER>h', '<C-w>h', { noremap = true })
+vim.keymap.set('n', '<LEADER>l', '<C-w>l', { noremap = true })
+
+-- Split window above current one (toggle splitbelow temporarily)
+vim.keymap.set('n', 'sk', ':set nosplitbelow<CR>:split<CR>:set splitbelow<CR>', { noremap = true })
+
+-- Split window below current one
+vim.keymap.set('n', 'sj', ':set splitbelow<CR>:split<CR>', { noremap = true })
+
+-- Split window to the left of current one (toggle splitright temporarily)
+vim.keymap.set('n', 'sh', ':set nosplitright<CR>:vsplit<CR>:set splitright<CR>', { noremap = true })
+
+-- Split window to the right of current one
+vim.keymap.set('n', 'sl', ':set splitright<CR>:vsplit<CR>', { noremap = true })
+
+-- Resize windows: increase/decrease height
+vim.keymap.set('n', '<up>', ':res +5<CR>', { noremap = true })
+vim.keymap.set('n', '<down>', ':res -5<CR>', { noremap = true })
+
+-- Resize windows: increase/decrease width
+vim.keymap.set('n', '<left>', ':vertical resize -5<CR>', { noremap = true })
+vim.keymap.set('n', '<right>', ':vertical resize +5<CR>', { noremap = true })
+
+
+
+
+
+---Tab management---
+
+-- Open a new tab
+vim.keymap.set('n', 'tk', ':tabe<CR>', { noremap = true })
+
+-- Split the current buffer into a new tab
+vim.keymap.set('n', 'tK', ':tab split<CR>', { noremap = true })
+
+-- Move to the previous tab
+vim.keymap.set('n', 'th', ':-tabnext<CR>', { noremap = true })
+
+-- Move to the next tab
+vim.keymap.set('n', 'tl', ':+tabnext<CR>', { noremap = true })
+
+-- Move the current tab to the left
+vim.keymap.set('n', 'tmh', ':-tabmove<CR>', { noremap = true })
+
+-- Move the current tab to the right
+vim.keymap.set('n', 'tml', ':+tabmove<CR>', { noremap = true })
+
+
+
 
 
 ---Fzf-lua---
@@ -143,7 +214,7 @@ local lspconfig = require("lspconfig")
 lspconfig.lua_ls.setup({ capabilities = capabilities })
 lspconfig.jdtls.setup({ capabilities = capabilities })
 lspconfig.pyright.setup({ capabilities = capabilities })
-vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
+vim.keymap.set("n", "<leader>gk", vim.lsp.buf.hover, {})
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
 
@@ -262,3 +333,26 @@ end
 
 vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, {})
 vim.keymap.set("n", "<leader>dc", dap.continue, {})
+
+
+
+
+
+---Move---
+require('move').setup({
+	line = {
+		enable = true, -- Enables line movement
+		indent = true  -- Toggles indentation
+	},
+	block = {
+		enable = true, -- Enables block movement
+		indent = true  -- Toggles indentation
+	},
+	word = {
+		enable = true, -- Enables word movement
+	},
+	char = {
+		enable = false -- Enables char movement
+	}
+})
+
