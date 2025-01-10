@@ -33,6 +33,18 @@ vim.cmd("colorscheme kanagawa")
 
 ---Basic Mappings---
 vim.g.mapleader = " "
+vim.keymap.set('n', ';', ':', { silent = false })
+vim.keymap.set('v', 'Y', '"+y', { silent = true })
+vim.keymap.set('i', '{', '{}<Esc>i', { silent = true })
+vim.keymap.set('i', '(', '()<Esc>i', { silent = true })
+vim.keymap.set('i', '[', '[]<Esc>i', { silent = true })
+vim.keymap.set('i', "'", "''<Esc>i", { silent = true })
+vim.keymap.set('i', '"', '""<Esc>i', { silent = true })
+vim.keymap.set('n', 'J', '5j', { silent = true })
+vim.keymap.set('n', 'K', '5k', { silent = true })
+vim.keymap.set('n', 'W', '5w', { silent = true })
+vim.keymap.set('n', 'B', '5b', { silent = true })
+
 
 ---Fzf-lua---
 vim.keymap.set("n", "<C-p>", function()
