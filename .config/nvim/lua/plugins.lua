@@ -45,16 +45,71 @@ return {
 	},
 	{
 		"hrsh7th/cmp-nvim-lsp",
-	},  -- completion
+	}, -- completion
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
 			"rcarriga/nvim-dap-ui",
-            "nvim-neotest/nvim-nio",
+			"nvim-neotest/nvim-nio",
 		},
-	},  -- debugger
-    {
-        'fedepujol/move.nvim',
-        opts = {}
-    },
+	}, -- debugger
+	{
+		"fedepujol/move.nvim",
+		opts = {},
+	},
+	{
+		"petertriho/nvim-scrollbar",
+		"kevinhwang91/nvim-hlslens",
+		"lewis6991/gitsigns.nvim",
+	}, --scrollbar
+	{
+		"karb94/neoscroll.nvim",
+		opts = {},
+	}, --neoscroll
+	--	{
+	--		"folke/which-key.nvim",
+	--		event = "VeryLazy",
+	--		opts = {
+	--			-- your configuration comes here
+	--			-- or leave it empty to use the default settings
+	-- refer to the configuration section below
+	--		},
+	--		keys = {
+	--			{
+	--				"<leader>?",
+	--				function()
+	--					--require("which-key").show({ global = false })
+	--				end,
+	--				desc = "Buffer Local Keymaps (which-key)",
+	--			},
+	--		},
+	--	},  --which-key
+	-- lazy.nvim
+	{
+		"sontungexpt/url-open",
+		event = "VeryLazy",
+		cmd = "URLOpenUnderCursor",
+		config = function()
+			local status_ok, url_open = pcall(require, "url-open")
+			if not status_ok then
+				return
+			end
+			url_open.setup({})
+		end,
+	}, --url-open
+	{
+		"jghauser/mkdir.nvim",
+	}, --mkdir without create
+	{
+		"gaborvecsei/usage-tracker.nvim",
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		build = "cd app && yarn install",
+		init = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
 }
