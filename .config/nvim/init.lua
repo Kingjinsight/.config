@@ -2,6 +2,7 @@
 require("config.lazy")
 require("config.colors")
 require("lazy").setup("plugins")
+require ("config.markdown")
 
 ---Editor behavior---
 vim.cmd("set tabstop=4")
@@ -9,6 +10,7 @@ vim.cmd("set shiftwidth=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set expandtab")
 vim.cmd("set inccommand=split")
+vim.cmd("set nocompatible")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set incsearch")
@@ -536,5 +538,24 @@ require('usage-tracker').setup({
 
 
 
----Markdown previewers---
---
+---vimi-table-mode---
+vim.g.table_mode_corner = '|'
+vim.g.table_mode_header_fillchar = '-'
+vim.g.table_mode_align_char = ':'
+
+
+
+
+
+---vimwiki---
+vim.g.vimwiki_list = {{
+  path = '~/Documents/vimwiki/',
+  syntax = 'markdown',
+  ext = '.md'
+}}
+
+
+
+
+
+
