@@ -24,11 +24,13 @@ export XDG_CONFIG_HOME=$HOME/.config
 
 
 #alias
+git init --separate-git-dir ~/.git-documents
 alias mindustry='java -jar /home/kj/Game/Mindustry.jar'
 alias fs="fastfetch"
 alias typora="typora --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias nv="nvim"
 alias vw="cd ~/Documents/vimwiki"
+alias cdd="cd ~/Documents"
 
 
 #prompt
