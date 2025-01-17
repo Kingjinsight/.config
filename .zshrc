@@ -16,6 +16,7 @@ export XMODIFIERS=@im=fcitx
 export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=fcitx
 export EDITOR=nvim
+export BROWSER=firefox
 export JAVA_HOME=/usr/lib/jvm/default
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
@@ -27,6 +28,7 @@ alias mindustry='java -jar /home/kj/Game/Mindustry.jar'
 alias fs="fastfetch"
 alias typora="typora --enable-features=UseOzonePlatform --ozone-platform=wayland"
 alias nv="nvim"
+alias vw="cd ~/Documents/vimwiki"
 
 
 #prompt
