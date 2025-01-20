@@ -3,10 +3,14 @@ configuration {
   combi-modes: [ window, drun, run ];
 }
 
-@theme "gruvbox-dark"
+//@theme "gruvbox-dark"
  
 /* Insert theme modifications after this */
 entry {
     placeholder: "Type here";
     cursor: pointer;
 }
+
+//@theme "/home/kj/.local/share/rofi/themes/rounded-nord-dark.rasi"
+
+@theme "/usr/share/rofi/themes/material.rasi"
