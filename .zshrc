@@ -33,6 +33,7 @@ alias vw="cd ~/Documents/vimwiki"
 alias cdd="cd ~/Documents"
 alias vs="code --ozone-platform-hint=wayland"
 alias mc="minecraft-launcher"
+alias kb="cd ~/Documents/Blog/King\'s_blog"
 
 #prompt
 autoload -Uz promptinit 
