@@ -17,10 +17,12 @@ export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=fcitx
 export EDITOR=nvim
 export BROWSER=firefox
-export JAVA_HOME=/usr/lib/jvm/default
+export JAVA_HOME=/usr/lib/jvm/java-23-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 export XDG_CONFIG_HOME=$HOME/.config
+export PATH="$HOME/bin:$PATH"
+
 
 
 #alias
@@ -66,3 +68,19 @@ zstyle :compinstall filename '/home/kj/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/kj/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/kj/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/kj/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/kj/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
