@@ -7,7 +7,7 @@ SAVEHIST=100000
 setopt append_history
 setopt hist_ignore_dups
 setopt share_history
-
+autoload -U compinit; compinit
 
 #environment_variables
 export GTK_IM_MODULE=fcitx
@@ -40,9 +40,8 @@ alias kb="cd ~/Documents/Blog/King\'s_blog"
 #prompt
 autoload -Uz promptinit 
 promptinit
-prompt fade blue
-
-
+#prompt fade blu
+PROMPT='%F{gray}%f %F{#8c7769}%n%f %F{#2b8cc7} %f %F{#99a785}%~%f %F{#779dc2}❭%f '
 
 #bindkey
 bindkey '^[[1;5C' emacs-forward-word
