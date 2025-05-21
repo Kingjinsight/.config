@@ -33,9 +33,12 @@ alias typora="typora --enable-features=UseOzonePlatform --ozone-platform=wayland
 alias nv="nvim"
 alias vw="cd ~/Documents/vimwiki"
 alias cdd="cd ~/Documents"
-alias vs="code --ozone-platform-hint=wayland"
 alias mc="minecraft-launcher"
 alias kb="cd ~/Documents/Blog/King\'s_blog"
+alias note="vw; nv index.md"
+alias diary="vw; cd diary; nv diary.md"
+
+
 
 #prompt
 autoload -Uz promptinit 
