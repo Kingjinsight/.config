@@ -22,6 +22,7 @@ export PATH=$JAVA_HOME/bin:$PATH
 export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 export XDG_CONFIG_HOME=$HOME/.config
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 
 
@@ -37,6 +38,7 @@ alias mc="minecraft-launcher"
 alias kb="cd ~/Documents/Blog/King\'s_blog"
 alias note="vw; nv index.md"
 alias diary="vw; cd diary; nv diary.md"
+alias gemini='npx https://github.com/google-gemini/gemini-cli'
 
 
 
@@ -86,3 +88,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+fs
