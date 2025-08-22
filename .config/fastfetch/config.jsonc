@@ -9,7 +9,7 @@
   "modules": [
     {
       "type": "custom",
-      "key": "\u001b[1;33mSoftware\u001b[0m",
+      "key":"\u001b[38;2;35;172;221mSoftware:\u001b[0m",
       "format": ""
     },
     { "type": "os", "key": "󰣇  OS", "keyColor": "blue",},
@@ -23,7 +23,7 @@
     { "type": "custom", "format": "" },
     {
       "type": "custom",
-      "key": "\u001b[1;33mHardware\u001b[0m",
+      "key": "\u001b[38;2;35;172;221mHardware:\u001b[0m",
       "format": ""
     },
     { "type": "host", "key": "󰌢  PC", "keyColor": "blue",},
