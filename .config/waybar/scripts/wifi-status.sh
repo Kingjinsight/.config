@@ -69,7 +69,7 @@ wifi_status=$(nmcli radio wifi)
 
 if [ "$wifi_status" = "disabled" ]; then
   tooltip="Wi-Fi Disabled"
-  icon="󰤮" # Icon for no connection or disabled
+  icon=" 󰤮" # Icon for no connection or disabled
   echo "{\"text\": \"${icon}\", \"tooltip\": \"${tooltip}\"}"
   exit 0
 fi

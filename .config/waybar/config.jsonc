@@ -43,6 +43,7 @@
     "clock#date",           // date
     "custom/right4",
 
+    "custom/eth",
     "custom/wifi",          // wi-fi
     "bluetooth",            // bluetooth
     "custom/update",        // system update
@@ -279,6 +280,17 @@
     "interval": 1,
     "min-length": 1,
     "max-length": 1
+  },
+
+  "custom/eth": {
+    "exec": "~/.config/waybar/scripts/eth-status.sh",
+    "return-type": "json",
+    "format": "{}",
+    "tooltip": true,
+    "on-click": "~/.config/waybar/scripts/eth-menu.sh",
+    "interval": 1,
+    "min-length": 1,
+    "max-length": 1 
   },
 
   "bluetooth": {
