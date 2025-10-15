@@ -1,0 +1,13 @@
+custom-shader = ./shaders/cursor_blaze.glsl
+custom-shader = ./shaders/tft.glsl
+custom-shader-animation = always
+
+font-thicken = true
+cursor-style = block
+link-url = true
+quick-terminal-animation-duration = 0
+keybind = global:super+ctrl+grave_accent=toggle_quick_terminal
+shell-integration-features = no-cursor
+cursor-style-blink = false
+clipboard-trim-trailing-spaces = true
+mouse-hide-while-typing = true
