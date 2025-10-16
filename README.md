@@ -8,7 +8,7 @@ GPU: NVIDIA GeForce RTX 3070 Mobile
 ## Software
 Shell: Zsh   
 Text editor: Neovim  
-Terminal: Kitty  
+Terminal: Ghostty 
 Application launcher: Rofi  
 Idle management: Hypridle  
 Screen locker: Hyprlock  
