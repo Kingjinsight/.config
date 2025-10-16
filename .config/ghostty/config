@@ -2,6 +2,10 @@ custom-shader = ./shaders/cursor_blaze.glsl
 custom-shader = ./shaders/tft.glsl
 custom-shader-animation = always
 
+background-image = ~/Pictures/wallpapers/bitcoin.png
+background-image-fit = cover
+background-image-opacity = 0.2
+
 font-thicken = true
 cursor-style = block
 link-url = true
