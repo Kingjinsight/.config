@@ -76,7 +76,7 @@ export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 export XDG_CONFIG_HOME=$HOME/.config
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-
+export PATH=/home/kj/.opencode/bin:$PATH
 
 
 #alias
