@@ -92,7 +92,7 @@ alias kb="cd ~/Documents/Blog/King\'s_blog"
 alias note="vw; nv index.md"
 alias diary="vw; cd diary; nv diary.md"
 alias gemini='npx https://github.com/google-gemini/gemini-cli'
-
+alias ccusage-opencode='npx @ccusage/opencode@latest'
 
 
 #prompt

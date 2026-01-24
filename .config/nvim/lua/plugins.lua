@@ -1,19 +1,10 @@
 return {
-    -- Your plugin list here, e.g.,
-    { "rebelot/kanagawa.nvim" },                                                      -- Kanagawa theme plugin
-    { "ibhagwan/fzf-lua",     dependencies = { "nvim-tree/nvim-web-devicons" }, opts = {} }, --Fzf-lua
+    { "rebelot/kanagawa.nvim" },
+    { "ibhagwan/fzf-lua", dependencies = { "nvim-tree/nvim-web-devicons" }, opts = {} },
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",
-        config = function()
-            local configs = require("nvim-treesitter.configs")
-            configs.setup({
-                auto_install = true,
-                highlight = { enable = true },
-                indent = { enable = true },
-            })
-        end,
-    }, --Treesitter
+    },
     {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v3.x",
@@ -65,26 +56,25 @@ return {
     {
         "karb94/neoscroll.nvim",
         opts = {},
-    }, --neoscroll
-    --	{
-    --		"folke/which-key.nvim",
-    --		event = "VeryLazy",
-    --		opts = {
-    --			-- your configuration comes here
-    --			-- or leave it empty to use the default settings
-    -- refer to the configuration section below
-    --		},
-    --		keys = {
-    --			{
-    --				"<leader>?",
-    --				function()
-    --					--require("which-key").show({ global = false })
-    --				end,
-    --				desc = "Buffer Local Keymaps (which-key)",
-    --			},
-    --		},
-    --	},  --which-key
-    -- lazy.nvim
+    },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {
+            icons = {
+                group = "",
+            },
+        },
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show({ global = false })
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
+            },
+        },
+    },
     {
         "sontungexpt/url-open",
         event = "VeryLazy",
@@ -115,6 +105,36 @@ return {
     {
         "dhruvasagar/vim-table-mode",
     }, --vim-table-mode
-    {"vimwiki/vimwiki",}, --vimwiki
+    {"vimwiki/vimwiki",},
+    {
+        "NickvanDyke/opencode.nvim",
+        dependencies = {
+            { "folke/snacks.nvim", opts = { input = {}, picker = {}, terminal = {} } },
+        },
+    },
+    {
+        "numToStr/Comment.nvim",
+        opts = {},
+    },
+    {
+        "windwp/nvim-autopairs",
+        event = "InsertEnter",
+        opts = {},
+    },
+    {
+        "folke/todo-comments.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        opts = {},
+    },
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {},
+    },
+    {
+        "folke/trouble.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        opts = {},
+    },
 }
 
