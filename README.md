@@ -16,7 +16,7 @@ Wallpaper management: Hyprpaper
 Status bar: Waybar  
 File manager: Yazi  
 Proxy client: Clash Verge  
-Terminal multiplexer:Tmux
+Terminal multiplexer:Tmux   
 CLI coding agent: Opencode
 
 ## One-command installation
