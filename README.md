@@ -17,8 +17,8 @@ Status bar: Waybar
 File manager: Yazi  
 Proxy client: Clash Verge  
 Terminal multiplexer:Tmux   
-CLI coding agent: Claude Code
-personalOS: Obsidian + Claude Code + Openclaw
+CLI coding agent: Claude Code    
+personalOS: Obsidian + Claude Code + Openclaw    
 
 ## One-command installation
 ```shell
