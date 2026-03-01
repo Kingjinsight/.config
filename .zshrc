@@ -93,6 +93,7 @@ alias note="vw; nv index.md"
 alias diary="vw; cd diary; nv diary.md"
 alias gemini='npx https://github.com/google-gemini/gemini-cli'
 alias ccusage-opencode='npx @ccusage/opencode@latest'
+alias ccusage='npx ccusage@latest' 
 
 
 #prompt
@@ -126,6 +127,9 @@ zstyle :compinstall filename '/home/kj/.zshrc'
 #compinit
 # End of lines added by compinstall
 
+# Secrets (gitignored)
+[[ -f ~/.zshrc.secrets ]] && source ~/.zshrc.secrets
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/kj/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -142,4 +146,3 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 eval "$(zoxide init zsh)"
-fs

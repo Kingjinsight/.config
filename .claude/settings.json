@@ -1,0 +1,41 @@
+{
+  "statusLine": {
+    "type": "command",
+    "command": "bash /home/kj/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "github@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "serena@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true
+  },
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "cmd=$(printf '%s' \"$CLAUDE_TOOL_INPUT_command\" | tr '\\n' ' '); printf '%s' \"$cmd\" | grep -qE 'git push.*(--force|-f).*(main|master)|git push.*(main|master).*(--force|-f)' && printf 'BLOCK: force-pushing to main/master is not allowed.\\n' && exit 2; exit 0"
+          },
+          {
+            "type": "command",
+            "command": "cmd=$(printf '%s' \"$CLAUDE_TOOL_INPUT_command\" | tr '\\n' ' '); printf '%s' \"$cmd\" | grep -qE '\\brm[[:space:]]+-[a-zA-Z]*rf|\\brm[[:space:]]+-[a-zA-Z]*fr|DROP[[:space:]]+TABLE|TRUNCATE[[:space:]]+TABLE' && printf 'WARNING: Destructive command detected. Confirm with user before proceeding.\\n' && exit 1; exit 0"
+          }
+        ]
+      }
+    ]
+  }
+}
