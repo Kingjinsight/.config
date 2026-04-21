@@ -70,7 +70,7 @@ export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=fcitx
 export EDITOR=nvim
 export BROWSER=firefox
-export JAVA_HOME=/usr/lib/jvm/java-23-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk
 export PATH=$JAVA_HOME/bin:$PATH
 export PATH="$HOME/.local/share/gem/ruby/3.3.0/bin:$PATH"
 export XDG_CONFIG_HOME=$HOME/.config
@@ -94,7 +94,7 @@ alias diary="vw; cd diary; nv diary.md"
 alias gemini='npx https://github.com/google-gemini/gemini-cli'
 alias ccusage-opencode='npx @ccusage/opencode@latest'
 alias ccusage='npx ccusage@latest' 
-
+alias excalidraw='cd ~/Documents/Projects/github_project_local/excalidraw && yarn start'
 
 #prompt
 #autoload -Uz promptinit 
