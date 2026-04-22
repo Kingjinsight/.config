@@ -91,6 +91,10 @@ ingested: true
 - <point 2>
 - <point 3>
 
+## Connections
+- [[Relevant Knowledge Page]] — one-line reason
+- [[Another Page]] — one-line reason
+
 ## Raw content
 <pasted text for web/note sources; excerpt + link for videos; caption + alt-text for images; arxiv abstract for papers>
 ```
@@ -151,7 +155,6 @@ Rules for Knowledge pages:
 - Write in King's voice — first person, his synthesis, not a paraphrase of the source
 - Chinese / English: match the existing page's language; for new pages, default to English unless the source is Chinese
 - Never touch `Knowledge Home.md`, `_index.md` (that's Step 8), or `_log.md` (that's Step 9)
-- Never touch anything outside `Resources/` and `Knowledge/`
 
 ## Step 8 — Update `_index.md`
 
@@ -203,7 +206,7 @@ Log: appended 1 entry
 - **Always get user confirmation at Step 4** before writing any files.
 - **King's voice.** Knowledge pages are his synthesis, not source summaries. If you find yourself quoting the source verbatim, stop and rewrite.
 - **Minimal diffs.** Edit existing pages with the Edit tool, don't rewrite them.
-- **Scope.** Only touch `Resources/` (source file) and `Knowledge/` (wiki pages, index, log). Never modify Daily Notes, Reviews, Projects, Areas, People, Logs, Ideas, Templates, or any soul file.
+- **Scope.** Primary writes go to `Resources/` (source file) and `Knowledge/` (wiki pages, index, log). Also add cross-links in soul files (Values, Beliefs, Goals, Anti-Goals), Daily Notes, or any other vault note where a genuine connection exists — the goal is a strongly interconnected Personal OS, not isolated sections. Never rewrite soul files; only append links.
 - **Contradictions surface, never silence.** Use a warning callout; flag in the report.
 - **Chinese/English.** Match existing page language. Preserve Chinese originals when quoting.
 - **Images.** Read markdown text first, then read referenced images separately — don't try to do both in one Read.

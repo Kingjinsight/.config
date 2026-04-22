@@ -1,56 +1,75 @@
 ---
 name: context
-description: Use when the user runs /context or asks for a summary of their current context, active projects, recent state, or says "brief me" or "summarize my vault".
+description: Use when the user runs /context or asks for a briefing on his Personal OS — who he is, how he thinks, how he wants AI to interact with him, and where he is right now. Produces a self-contained system prompt about King that any future AI session can use to instantly understand him.
 ---
 
-# Vault Briefing
+# Context — System Prompt About King
 
-Read King's Obsidian vault and synthesize a current-state brief.
+Read King's vault and output a self-contained briefing in his first-person voice. The result should read like a system prompt King wrote about himself: a future AI session reading this output alone should immediately know who he is, how he thinks, how to behave with him, and what he's working on right now.
 
-## Reading Order
+## Reading
 
-Execute in this order, in parallel where possible:
+Read in parallel where possible. Follow `AGENT.md`'s tier order — it is the source of truth.
 
-1. `Now.md` — current focus and active projects
-2. `Goals.md` — Q1 goals
-3. `Areas/Internship Applications.md` — active applications and interviews
-4. Active projects — all files in `Projects/` where `status: active`
-5. Last 7 days of `Daily Notes/` — from today's date backwards
-6. Most recent `Reviews/` file
+- **Tier 1 (identity):** `About Me`, `Values`, `Beliefs`, `Anti-Goals`, `Goals`
+- **Tier 2 (operating principles):** every Knowledge page listed in `AGENT.md` Tier 2; also scan `Knowledge/_index.md` for newer principle-level pages and read them
+- **Tier 3 (current state, selective):** `Now`, active `Projects/` (status: active), last 7 days of `Daily Notes/`, latest `Reviews/` entry
 
-## Output Format
+Skip Tier 4 unless a specific question requires it.
 
-Respond with exactly this structure — be concise, no filler:
+## Output
+
+Produce the briefing in this exact shape. Write in King's first-person voice — the goal is for the output to feel like a system prompt the user has authored about themselves.
+
+---
+
+# About me
+
+I'm **King Jin** — *(role, background, long-term direction in 2–3 lines from About Me)*.
+
+# How I think
+
+*(4–6 bullets distilled from Values + Beliefs. State them as principles or stances, not as descriptions.)*
+
+# What I won't accept
+
+*(2–4 bullets from Anti-Goals. Pick the ones that operationally constrain how an AI should work with me.)*
+
+# How I want you to interact with me
+
+*(This is the most important section. Distill from every Tier 2 page actually present in the vault. Phrase as direct instructions to the AI, not as descriptions of what King believes. Each bullet should be something the AI can immediately apply.)*
+
+Example shape (only as a format reference — pull real content from the actual Tier 2 pages):
+- Be Socratic in learning-phase work — challenge my reasoning, don't hand me answers
+- Don't think for me. You're a force multiplier for execution, not a substitute for reasoning
+- Treat my attention as the scarcest resource — prefer mechanism over phenomenon, long half-life over short
+- Even when I sound emotional, action over rumination; help me move, don't help me stew
+
+# What I'm working toward
+
+- **Long-term:** *(1 line from About Me)*
+- **This year / quarter:** *(2–3 bullets from Goals)*
+- **3-month focus:** *(2–3 bullets from Now)*
+
+# Where I am right now
+
+- **Active projects:** *(one line per project: name → what it is → current state)*
+- **Internship pipeline:** *(interviews pending / deadlines, if any)*
+- **Last 7 days:** *(2–4 lines on what actually happened; include energy/emotional signal if notable)*
 
 ---
 
-**Current Focus** (from Now.md)
-- Main projects, learning, life priorities in 2-3 bullets
-
-**Active Projects**
-- One line per project: name → what it is → current state
-
-**Internship Pipeline**
-- Interviews pending / upcoming deadlines
-- Notable status changes in the last 7 days
-
-**Last 7 Days — What Actually Happened**
-- Key events, completions, blockers from daily notes
-- Emotional/energy signal if notable (e.g. low energy, big win)
-
-**Open Threads**
-- Unchecked todos from recent daily notes still pending
-- Anything mentioned as "tomorrow" or "next" that hasn't appeared completed
-
-**Priorities This Week** (synthesized)
-- What King should focus on based on the above
-
----
+*(If you find a Knowledge page that reads as principle-level but isn't in `AGENT.md` Tier 2, append one line at the bottom: "Possible new Tier 2: [[page]] — [why]". Don't elaborate.)*
 
 ## Rules
 
-- Pull facts from the notes — don't invent or extrapolate
-- If a daily note is missing for a day, skip it silently
-- Chinese content in daily notes: read it, include relevant points in English in the summary
-- Keep the whole output under 400 words
-- Do not read Knowledge/, Resources/, People/, or Logs/ unless specifically relevant to an active project or interview
+- Pull from the actual notes — never invent or extrapolate
+- Every bullet in "How I want you to interact with me" must come from a real Tier 2 page; if a page is missing, skip it silently — do not fabricate principles
+- Stable sections (About me, How I think, What I won't accept, How I want you to interact) should not drift between sessions if the underlying notes haven't changed
+- Chinese content in daily notes: read in original, surface key points in English in the briefing
+- Skip missing daily notes silently
+- Total output: under 600 words
+
+## Self-updating
+
+`AGENT.md` Tier 2 is the canonical list of principle pages. To add a new principle that should flow into every briefing, update `AGENT.md` — this skill picks it up automatically.
