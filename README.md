@@ -7,7 +7,7 @@ Shell: Zsh + Zim
 Terminal: Ghostty  
 Terminal multiplexer: Tmux  
 Agent terminals: Rex, herdr  
-Window management: Rectangle, Topit  
+Window management: Rectangle  
 Text editor: VS Code  
 Proxy client: FlClash  
 Package manager: Homebrew  

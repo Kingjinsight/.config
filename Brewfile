@@ -1,4 +1,3 @@
-tap "lihaoyun6/tap"
 # Cloudflare Tunnel client (formerly Argo Tunnel)
 brew "cloudflared"
 # Pure Scala Artifact Fetching
@@ -51,8 +50,6 @@ cask "libreoffice"
 cask "rectangle"
 # JDK from the Eclipse Foundation (Adoptium)
 cask "temurin@21"
-# Pin any window to the top of your screen.
-cask "lihaoyun6/tap/topit", trusted: true
 uv "graphifyy"
 npm "ccusage"
 npm "corepack"
