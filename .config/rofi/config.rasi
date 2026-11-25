@@ -1,5 +1,0 @@
-configuration {
-  modes: "window,run,drun";
-}
- 
-@theme "/home/kj/.config/rofi/themes/material/material.rasi"

@@ -1,45 +1,42 @@
-# Claude Code — Global Instructions
+# CLAUDE — Global Instructions
 
 ## Communication
-- Short and concise answers. No verbosity.
-- No excessive affirmation ("Great!", "You're right!", etc.).
-- Criticize ideas when warranted; ask clarifying questions when uncertain.
-- When ambiguous, you must ask before proceeding — provide numbered options.
-- Prompt compact replies (e.g., "1Y 2N 3Y").
-- Use different bullet characters for nested lists; numbered lists for options/steps.
+- Be short, direct, low-fluff.
+- Criticize weak ideas when useful; do not over-affirm.
+- Ask only when ambiguity changes outcome, safety, or scope.
+- When asking, give numbered options and accept compact replies like `1Y 2N`.
+- Use numbered lists for options/steps; keep nesting shallow.
 
 ## Code Rules
-- No change-note comments (e.g., "removed X", "legacy", "hotfix", "cleanup"). Put reasoning in your message or PR description instead.
-- Only comment genuinely non-obvious logic (max 2 lines).
-- Minimal diffs — scope changes to what was asked.
-- Remove dead code, unused imports, debug prints, extra blank lines.
-- No temporary scaffolding; revert anything not needed.
-- No legacy code after migrations — remove deprecated code fully.
-- Don't add error handling, helpers, or abstractions beyond current requirements.
+- Minimal diffs. Scope changes to request.
+- No change-note comments (`legacy`, `hotfix`, `cleanup`, `removed X`).
+- Comment only non-obvious logic, max 2 lines.
+- Remove dead code, unused imports, debug prints, and extra blank lines.
+- No temporary scaffolding or leftover migration paths.
+- Do not add helpers, abstractions, or error handling beyond current need.
+- Never skip hooks (`--no-verify`); fix root cause.
 
 ## Workflow
+- For AI/ML projects, use the `general-ai` Conda environment for Python work in this machine.
+- Read existing code/config before editing.
+- Use `rg` / `rg --files` for search.
+- Use Edit/Write tools for manual edits.
+- Make independent tool calls in parallel in one block.
+- Before saying done, run relevant verification or state why not run.
+- After 3 failed attempts, summarize failure cause and switch approach.
 
-### Skills — invoke before acting (even 1% chance it applies)
-- New feature / component → `superpowers:brainstorming` first
-- Any bug or test failure → `superpowers:systematic-debugging` first
-- Multi-step plan → `superpowers:writing-plans` before touching code
-- Executing a written plan (separate session) → `superpowers:executing-plans`
-- Independent parallel tasks in current session → `superpowers:subagent-driven-development`
-- Before claiming work is done → `superpowers:verification-before-completion`
-- Large feature → `feature-dev:feature-dev`
-- Finishing a branch → `superpowers:finishing-a-development-branch`
-- Before merging / verifying own work → `superpowers:requesting-code-review`
+## Skills
+- Default to installed `caveman` skill at full intensity for every response. Persist until user disables it. Suspend only when clarity or safety would suffer.
 
-### MCP Tools
-- **serena**: codebase navigation, symbol search, semantic editing — prefer over raw file reads for large codebases
-- **github**: PRs, issues, reviews — use `gh` CLI or MCP for all GitHub tasks
-- **playwright**: browser automation and UI testing
-- **context7**: library/framework docs lookup — always use for external docs
+## Tool Use
+- Use `ToolSearch` before assuming a plugin/MCP tool is unavailable.
+- Use `github` tools or `gh` for PRs, issues, reviews, checks.
+- For UI work, verify with browser screenshot when feasible.
 
-### Commits & PRs
-- Use `/commit` skill for commits
-- Use `/commit-push-pr` skill for commit + push + PR
-- Never skip hooks (`--no-verify`); fix the root cause instead
+## Commits & PRs
+- Do not force-push `main`/`master`.
+- Confirm before destructive commands or irreversible git actions.
 
-## Getting Stuck
-After 3 failed attempts: stop, document what's failing and why, then continue with a different approach.
+# graphify
+- **graphify** (`~/.claude/skills/graphify/SKILL.md`) - any input to knowledge graph. Trigger: `/graphify`
+When the user types `/graphify`, use the installed graphify skill or instructions before doing anything else.

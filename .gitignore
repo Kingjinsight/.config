@@ -1,0 +1,8 @@
+.DS_Store
+.config/gh/hosts.yml
+.config/herdr/*.log
+.config/herdr/session.json
+.claude.json
+.codex/
+.ssh/
+.gitconfig
